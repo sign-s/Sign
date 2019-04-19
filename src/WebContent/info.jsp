@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h3>
-		操作结果:<%=request.getAttribute("info")%>z</h3>
+		操作结果:<%=request.getAttribute("info")%></h3>
 	<p>
 		<a href="<%=request.getAttribute("backPage")%>">返回上一步</a>
 </body>

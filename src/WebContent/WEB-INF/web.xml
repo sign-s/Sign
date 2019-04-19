@@ -17,4 +17,25 @@
   <welcome-file-list>
     <welcome-file>login.jsp</welcome-file>
   </welcome-file-list>
+  
+  
+  <servlet>
+<servlet-name>Studentxinxi</servlet-name>
+<servlet-class>jdbc.Studentxinxi</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>Studentxinxi</servlet-name>
+<url-pattern>/searchByConditionServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>Attendancerecord</servlet-name>
+<servlet-class>org.study.record.Attendancerecord</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>Attendancerecord</servlet-name>
+<url-pattern>/SignServlet</url-pattern>
+</servlet-mapping>
 </web-app>

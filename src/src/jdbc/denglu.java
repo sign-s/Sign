@@ -13,24 +13,29 @@ import javax.servlet.http.HttpServletResponse;
 public class denglu extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-		String logname = req.getParameter("logname");//»ñÈ¡ÓÃ»§Ãû
-		String password = req.getParameter("password");//»ñÈ¡ÃÜÂë
+		String logname = req.getParameter("logname");//è·å–ç”¨æˆ·å
+		String password = req.getParameter("password");//è·å–å¯†ç 
+//		String major = req.getParameter("major");//è·å–ä¸“ä¸šåç§°
 		
 		try {
 			Statement stat = DbManager.connection.createStatement();
-			//²éÑ¯
+			//æŸ¥è¯¢
 			String sql = "SELECT * FROM user WHERE logname='" + logname + "' AND password='" + password + "';";
 			ResultSet results = stat.executeQuery(sql);
 			results.last();
 			if (results.getRow() == 1) {
-				// Æ¥Åä³É¹¦£¡
+				// åŒ¹é…æˆåŠŸï¼
 				String name = results.getString(3);
-				req.getSession().setAttribute("username", name);//username¶ÔÓ¦home.jspµÄÊôĞÔÃû
-				// Æ¥Åä³É¹¦·µ»Øµ½home.jsp
+				String stunumber = results.getString(1);
+				String stumajor = results.getString(5);
+				req.getSession().setAttribute("username", name);//usernameå¯¹åº”home.jspçš„å±æ€§å
+				req.getSession().setAttribute("StudentNumber", stunumber);//è·å–åˆ°å­¦ç”Ÿå­¦å·
+				req.getSession().setAttribute("studentmajor", stumajor);//è·å–åˆ°å­¦ç”Ÿä¸“ä¸šåç§°
+				// åŒ¹é…æˆåŠŸè¿”å›åˆ°home.jsp
 				req.getRequestDispatcher("home.jsp").forward(req, resp);
 			}
-			else { //Æ¥Åä²»µ½·µ»ØµÇÂ¼½çÃæ
-				req.setAttribute("info", "ÓÃ»§Ãû»òÃÜÂë´íÎó£¡");
+			else { //åŒ¹é…ä¸åˆ°è¿”å›ç™»å½•ç•Œé¢
+				req.setAttribute("info", "ç”¨æˆ·åæˆ–å¯†ç é”™è¯¯ï¼");
 				req.setAttribute("backPage", "login.jsp");
 				req.getRequestDispatcher("info.jsp").forward(req, resp);
 			}
