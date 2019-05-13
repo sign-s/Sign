@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>01</display-name>
+  <listener>
+    <listener-class>jdbc.SimpleServletListener</listener-class>
+  </listener>
+  
+  <servlet>
+    <servlet-name>denglu</servlet-name>
+	<servlet-class>jdbc.denglu</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>denglu</servlet-name>
+    <url-pattern>/loginServlet</url-pattern>
+  </servlet-mapping>
+  
+  <welcome-file-list>
+    <welcome-file>login.jsp</welcome-file>
+  </welcome-file-list>
+  
+  
+  <servlet>
+<servlet-name>Studentxinxi</servlet-name>
+<servlet-class>jdbc.Studentxinxi</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>Studentxinxi</servlet-name>
+<url-pattern>/searchByConditionServlet</url-pattern>
+</servlet-mapping>
+
+
+
+<servlet>
+<servlet-name>Gerenxinxi</servlet-name>
+<servlet-class>org.study.Grxx.Gerenxinxi</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>Gerenxinxi</servlet-name>
+<url-pattern>/searchByConditionServlet1</url-pattern>
+</servlet-mapping>
+
+
+
+
+<servlet>
+<servlet-name>Attendancerecord</servlet-name>
+<servlet-class>org.study.record.Attendancerecord</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>Attendancerecord</servlet-name>
+<url-pattern>/SignServlet</url-pattern>
+</servlet-mapping>
+
+<!--增加学生-->
+<servlet>
+    <servlet-name>IncreasestuServlet</servlet-name>
+	<servlet-class>org.study.servlet.IncreasestuServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>IncreasestuServlet</servlet-name>
+    <url-pattern>/increasestu.do</url-pattern>
+</servlet-mapping>
+<!--增加学生End-->
+
+<!--删除学生-->
+<servlet>
+    <servlet-name>DeletestuServlet</servlet-name>
+	<servlet-class>org.study.servlet.DeletestuServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>DeletestuServlet</servlet-name>
+    <url-pattern>/deletestu.do</url-pattern>
+</servlet-mapping>
+<!--删除学生End-->
+
+<!--查询学生签到-->
+<servlet>
+    <servlet-name>SignQueryServlet</servlet-name>
+	<servlet-class>org.study.servlet.SignQueryServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>SignQueryServlet</servlet-name>
+    <url-pattern>/SignQuery.do</url-pattern>
+</servlet-mapping>
+<!--查询学生签到End-->
+
+</web-app>
